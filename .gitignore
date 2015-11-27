@@ -24,6 +24,7 @@ sdist/
 var/
 httplib2/
 oauth2client/
+ee/
 *.egg-info/
 .installed.cfg
 *.egg
