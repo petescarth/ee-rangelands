@@ -5,6 +5,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Keys
+*.pem
+
 # Distribution / packaging
 .Python
 env/
@@ -19,6 +22,8 @@ lib64/
 parts/
 sdist/
 var/
+httplib2/
+oauth2client/
 *.egg-info/
 .installed.cfg
 *.egg

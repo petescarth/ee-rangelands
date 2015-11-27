@@ -224,8 +224,8 @@ WIKI_URL = 'http://en.wikipedia.org/wiki/'
 
 
 # Use our App Engine service account's credentials.
-EE_CREDENTIALS = ee.ServiceAccountCredentials(
-    config.EE_ACCOUNT, config.EE_PRIVATE_KEY_FILE)
+EE_CREDENTIALS = ee.ServiceAccountCredentials(config.EE_ACCOUNT, config.EE_PRIVATE_KEY_FILE)
+
 
 # Read the polygon IDs from the file system.
 POLYGON_IDS = [name.replace('.json', '') for name in os.listdir(POLYGON_PATH)]
