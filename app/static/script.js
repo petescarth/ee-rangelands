@@ -96,8 +96,8 @@ trendy.App.prototype.addPolygons = function(polygonIds) {
   this.map.data.setStyle(function(feature) {
     return {
       fillColor: 'white',
-      strokeColor: 'white',
-      strokeWeight: 3
+      strokeColor: 'blue',
+      strokeWeight: 2
     };
   });
 };
@@ -224,7 +224,7 @@ trendy.App.DEFAULT_CENTER = {lng: 5, lat: 50};
  *     https://developers.google.com/maps/documentation/javascript/styling
  */
 trendy.App.BLACK_BASE_MAP_STYLES = [
-  {stylers: [{lightness: -100}]},
+  {stylers: [{lightness: 000}]},
   {
     featureType: 'road',
     elementType: 'labels',
