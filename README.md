@@ -1,4 +1,4 @@
-Global Rangeland App
+Global Rangelands - *Grassy Knowledge*
 ====================
 
 This repository consists of two applications:
@@ -6,11 +6,14 @@ This repository consists of two applications:
  - The calibration ipython notebook, that:
 	 - Takes a database of fractional cover field sites and extracts the reflectance data for the closest image acquisition in space and time
 	 - Follows the endmember extration method outlined in Scarth 2010 to build an optimal set of endmembers for image unmixing
- - The Earth Engine based appspot app found at https://global-rangelands.appspot.com/ which **is planned** to include:
-	 - Time series fractional cover estimates
-	 - Time series decile maps for anomoly detection
-	 - Summary tools for significant grasslands based on a [simplfied WWF grasslands map](https://www.google.com/fusiontables/data?docid=1ZEU45Vfzu9VTQMhwTeAoVY5eY2yIDqFz4JhUm5Fy#map:id=3)
-	 - push alert tools for significat events
+ - The Earth Engine based appspot app
+	 - Forked from [Trendy Lights](https://github.com/google/earthengine-api/tree/master/demos/trendy-lights)
+	 - Currently running at https://global-rangelands.appspot.com/ 
+	 -  **Is planned** to include:
+		 - Time series fractional cover estimates
+		 - Time series decile maps for anomoly detection
+		 - Summary tools for significant grasslands based on a [simplfied WWF grasslands map](https://www.google.com/fusiontables/data?docid=1ZEU45Vfzu9VTQMhwTeAoVY5eY2yIDqFz4JhUm5Fy#map:id=3)
+		 - Push alert tools for significant events
 
 References
 ----------
