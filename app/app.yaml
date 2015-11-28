@@ -1,4 +1,4 @@
-application: your-appid-here
+application: global-rangelands
 version: 1
 
 runtime: python27
