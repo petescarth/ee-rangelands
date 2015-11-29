@@ -78,7 +78,7 @@ trendy.App.prototype.createMap = function(mapType) {
   };
   var mapEl = $('.map').get(0);
   var map = new google.maps.Map(mapEl, mapOptions);
-  map.setOptions({styles: trendy.App.BLACK_BASE_MAP_STYLES});
+  map.setOptions({styles: trendy.App.BASE_MAP_STYLES});
   map.overlayMapTypes.push(mapType);
   return map;
 };
@@ -96,7 +96,9 @@ trendy.App.prototype.addPolygons = function(polygonIds) {
   this.map.data.setStyle(function(feature) {
     return {
       fillColor: 'white',
-      strokeColor: 'blue',
+      fillOpacity: 0.05,
+      strokeColor: 'BurlyWood',
+      strokeOpacity: 0.5,
       strokeWeight: 2
     };
   });
@@ -212,19 +214,19 @@ trendy.App.EE_URL = 'https://earthengine.googleapis.com';
 
 
 /** @type {number} The default zoom level for the map. */
-trendy.App.DEFAULT_ZOOM = 4;
+trendy.App.DEFAULT_ZOOM = 3;
 
 
 /** @type {Object} The default center of the map. */
-trendy.App.DEFAULT_CENTER = {lng: 5, lat: 50};
+trendy.App.DEFAULT_CENTER = {lng: 25, lat: 0};
 
 
 /**
  * @type {Array} An array of Google Map styles. See:
  *     https://developers.google.com/maps/documentation/javascript/styling
  */
-trendy.App.BLACK_BASE_MAP_STYLES = [
-  {stylers: [{lightness: 000}]},
+trendy.App.BASE_MAP_STYLES = [
+  {stylers: [{lightness: -100}]},
   {
     featureType: 'road',
     elementType: 'labels',
