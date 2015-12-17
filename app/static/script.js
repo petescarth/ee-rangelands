@@ -97,7 +97,7 @@ trendy.App.prototype.addPolygons = function(polygonIds) {
     return {
       fillColor: 'white',
       fillOpacity: 0.05,
-      strokeColor: 'BurlyWood',
+      strokeColor: 'DarkGoldenRod',
       strokeOpacity: 0.5,
       strokeWeight: 2
     };
