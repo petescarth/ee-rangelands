@@ -129,46 +129,46 @@ app = webapp2.WSGIApplication([
 # Builds Interactive Terms
 def applytransforms(mcd43Image):
     # Select the algorithm bands and rescale to Qld RSC values
-    useBands = mcd43Image.select("Nadir_Reflectance_Band4", "Nadir_Reflectance_Band1", "Nadir_Reflectance_Band2", "Nadir_Reflectance_Band5","Nadir_Reflectance_Band6","Nadir_Reflectance_Band7")
+    useBands = mcd43Image.select(["Nadir_Reflectance_Band4", "Nadir_Reflectance_Band1", "Nadir_Reflectance_Band2", "Nadir_Reflectance_Band5","Nadir_Reflectance_Band6","Nadir_Reflectance_Band7"],["band2","band3","band4","band5","band6","band7"]).add(1).divide(10000)
     logBands = useBands.log();
     # Combine the bands into a new image
-    # Note that this line is missing logBands.expression("b('Nadir_Reflectance_Band2') * b('Nadir_Reflectance_Band7')"),
+    # Note that this line is missing logBands.expression("b('band4') * b('band7')"),
     return ee.Image.cat(
-      useBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band1')"),
-      useBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band2')"),
-      useBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band5')"),
-      useBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band6')"),
-      useBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band7')"),
-      useBands.expression("b('Nadir_Reflectance_Band4') * logs", {'logs': logBands}),
-      useBands.expression("b('Nadir_Reflectance_Band1') * b('Nadir_Reflectance_Band2')"),
-      useBands.expression("b('Nadir_Reflectance_Band1') * b('Nadir_Reflectance_Band5')"),
-      useBands.expression("b('Nadir_Reflectance_Band1') * b('Nadir_Reflectance_Band6')"),
-      useBands.expression("b('Nadir_Reflectance_Band1') * b('Nadir_Reflectance_Band7')"),
-      useBands.expression("b('Nadir_Reflectance_Band1') * logs", {'logs': logBands}),
-      useBands.expression("b('Nadir_Reflectance_Band2') * b('Nadir_Reflectance_Band5')"),
-      useBands.expression("b('Nadir_Reflectance_Band2') * b('Nadir_Reflectance_Band6')"),
-      useBands.expression("b('Nadir_Reflectance_Band2') * b('Nadir_Reflectance_Band7')"),
-      useBands.expression("b('Nadir_Reflectance_Band2') * logs", {'logs': logBands}),
-      useBands.expression("b('Nadir_Reflectance_Band5') * b('Nadir_Reflectance_Band6')"),
-      useBands.expression("b('Nadir_Reflectance_Band5') * b('Nadir_Reflectance_Band7')"),
-      useBands.expression("b('Nadir_Reflectance_Band5') * logs", {'logs': logBands}),
-      useBands.expression("b('Nadir_Reflectance_Band6') * b('Nadir_Reflectance_Band7')"),
-      useBands.expression("b('Nadir_Reflectance_Band6') * logs", {'logs': logBands}),
-      useBands.expression("b('Nadir_Reflectance_Band7') * logs", {'logs': logBands}),
-      logBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band1')"),
-      logBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band2')"),
-      logBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band5')"),
-      logBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band6')"),
-      logBands.expression("b('Nadir_Reflectance_Band4') * b('Nadir_Reflectance_Band7')"),
-      logBands.expression("b('Nadir_Reflectance_Band1') * b('Nadir_Reflectance_Band2')"),
-      logBands.expression("b('Nadir_Reflectance_Band1') * b('Nadir_Reflectance_Band5')"),
-      logBands.expression("b('Nadir_Reflectance_Band1') * b('Nadir_Reflectance_Band6')"),
-      logBands.expression("b('Nadir_Reflectance_Band1') * b('Nadir_Reflectance_Band7')"),
-      logBands.expression("b('Nadir_Reflectance_Band2') * b('Nadir_Reflectance_Band5')"),
-      logBands.expression("b('Nadir_Reflectance_Band2') * b('Nadir_Reflectance_Band6')"),
-      logBands.expression("b('Nadir_Reflectance_Band5') * b('Nadir_Reflectance_Band6')"),
-      logBands.expression("b('Nadir_Reflectance_Band5') * b('Nadir_Reflectance_Band7')"),
-      logBands.expression("b('Nadir_Reflectance_Band6') * b('Nadir_Reflectance_Band7')"),
+      useBands.expression("b('band2') * b('band3')"),
+      useBands.expression("b('band2') * b('band4')"),
+      useBands.expression("b('band2') * b('band5')"),
+      useBands.expression("b('band2') * b('band6')"),
+      useBands.expression("b('band2') * b('band7')"),
+      useBands.expression("b('band2') * logs", {'logs': logBands}),
+      useBands.expression("b('band3') * b('band4')"),
+      useBands.expression("b('band3') * b('band5')"),
+      useBands.expression("b('band3') * b('band6')"),
+      useBands.expression("b('band3') * b('band7')"),
+      useBands.expression("b('band3') * logs", {'logs': logBands}),
+      useBands.expression("b('band4') * b('band5')"),
+      useBands.expression("b('band4') * b('band6')"),
+      useBands.expression("b('band4') * b('band7')"),
+      useBands.expression("b('band4') * logs", {'logs': logBands}),
+      useBands.expression("b('band5') * b('band6')"),
+      useBands.expression("b('band5') * b('band7')"),
+      useBands.expression("b('band5') * logs", {'logs': logBands}),
+      useBands.expression("b('band6') * b('band7')"),
+      useBands.expression("b('band6') * logs", {'logs': logBands}),
+      useBands.expression("b('band7') * logs", {'logs': logBands}),
+      logBands.expression("b('band2') * b('band3')"),
+      logBands.expression("b('band2') * b('band4')"),
+      logBands.expression("b('band2') * b('band5')"),
+      logBands.expression("b('band2') * b('band6')"),
+      logBands.expression("b('band2') * b('band7')"),
+      logBands.expression("b('band3') * b('band4')"),
+      logBands.expression("b('band3') * b('band5')"),
+      logBands.expression("b('band3') * b('band6')"),
+      logBands.expression("b('band3') * b('band7')"),
+      logBands.expression("b('band4') * b('band5')"),
+      logBands.expression("b('band4') * b('band6')"),
+      logBands.expression("b('band5') * b('band6')"),
+      logBands.expression("b('band5') * b('band7')"),
+      logBands.expression("b('band6') * b('band7')"),
       useBands,
       logBands,
       ee.Image(0.25))
@@ -176,17 +176,25 @@ def applytransforms(mcd43Image):
   
  
 def GetTrendyMapId():
-  # Import MODIS Imagery
-  mcd43a4 = ee.ImageCollection('MODIS/MCD43A4')
+  # Import MODIS Imagery and sort from most recent
+  mcd43a4 = ee.ImageCollection('MODIS/MCD43A4').sort('system:time_start', False )
+  # Apply the variable transforms and unmix
+  unmixedCollection = mcd43a4.map(lambda img:applytransforms(img).unmix([end_bare,end_gren,end_dead]).select(["band_0","band_1","band_2"]))
 
+  
   # Get the latest image
-  latestImage = mcd43a4.sort('system:time_start', False ).limit(1).median()
-  transformedImage = applytransforms(latestImage)
+  #latestImage = mcd43a4.sort('system:time_start', False ).limit(1).median()
+  #transformedImage = applytransforms(latestImage)
 
-  # Cmpute the cover Fractions
-  coverFractions = transformedImage.unmix([end_bare,end_gren,end_dead]).select(["band_0","band_1","band_2"])
+  # Compute the cover Fractions
+  #coverFractions = transformedImage.unmix([end_bare,end_gren,end_dead]).select(["band_0","band_1","band_2"])
+  
+  
+  coverFractions = unmixedCollection.limit(3).median()
+    
 
-  return ee.Image(latestImage).select('Nadir_Reflectance_Band6', 'Nadir_Reflectance_Band2', 'Nadir_Reflectance_Band1').getMapId({'min': '100,100,100', 'max': '4000,4000,4000'})
+  #return ee.Image(latestImage).select('Nadir_Reflectance_Band6', 'Nadir_Reflectance_Band2', 'Nadir_Reflectance_Band1').getMapId({'min': '100,100,100', 'max': '4000,4000,4000'})
+  return ee.Image(coverFractions).getMapId({'min': '0.1,0.0,0.15', 'max': '0.85,0.50,0.85'})
 
 #   """Returns the MapID for the night-time lights trend map."""
 #   collection = ee.ImageCollection(IMAGE_COLLECTION_ID)

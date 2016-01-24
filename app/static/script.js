@@ -224,9 +224,10 @@ trendy.App.DEFAULT_CENTER = {lng: 25, lat: 0};
 /**
  * @type {Array} An array of Google Map styles. See:
  *     https://developers.google.com/maps/documentation/javascript/styling
+ *     lightness: -100 gives balck background
  */
 trendy.App.BASE_MAP_STYLES = [
-  {stylers: [{lightness: -100}]},
+  {stylers: [{lightness: 0}]},
   {
     featureType: 'road',
     elementType: 'labels',
