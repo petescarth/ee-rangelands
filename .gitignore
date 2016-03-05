@@ -11,6 +11,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
+app/lib/*
 build/
 develop-eggs/
 dist/
@@ -22,9 +23,6 @@ lib64/
 parts/
 sdist/
 var/
-httplib2/
-oauth2client/
-ee/
 *.egg-info/
 .installed.cfg
 *.egg
